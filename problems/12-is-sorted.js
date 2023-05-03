@@ -10,7 +10,26 @@ isSorted([2, 4, 6, 7, 8]); // true
 isSorted([5, 4, 3, 2, 1]); // false
 ***********************************************************************/
 
+// base case: last element in index
+// recursive case: element is greater than previous element
+// recursive step: check if element is true
+
 // your code here
+
+const isSorted = function(array, i = 1){
+  if (i === array.length){
+    return true;
+  }
+
+  let check = array[i] > array[i - 1];
+
+  if (check){
+    return isSorted(array, i + 1);
+  } else {
+    return false;
+  }
+
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

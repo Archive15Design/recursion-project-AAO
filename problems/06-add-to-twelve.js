@@ -12,7 +12,21 @@ addToTwelve([1, 12, 4, 7, 6]); // false
 addToTwelve([1]); // false
 ***********************************************************************/
 
-// your code here
+const addToTwelve = function(numbers, i = 0){
+  const currentEle = numbers[i];
+  const previousEle = numbers[i - 1];
+
+  if (currentEle + previousEle === 12){
+    return true;
+  }
+
+  if (i > numbers.length){
+    return false;
+  } else {
+    return addToTwelve(numbers, i + 1);
+  }
+
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

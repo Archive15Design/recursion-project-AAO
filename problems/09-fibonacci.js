@@ -19,12 +19,39 @@ fibonacci(4); // 3
 fibonacci(10); // 55
 ***********************************************************************/
 
-// your code here
-  
+const fibonacci = function(n, fibonacciArr = [], i = 0){
+  if (n === 0){
+    return null;
+  } else if (n < 3){
+    return 1;
+  }
+
+  // base case return
+  if (fibonacciArr.length === n){
+    return fibonacciArr[i];
+  } else if (fibonacciArr.length === 0){
+    fibonacciArr = [1, 1];
+    i = 1;
+    return fibonacci(n, fibonacciArr, i);
+  } else {
+    i++;
+    // init variables to be summed for next number, setting undefined to 1.
+    let last = fibonacciArr[i - 1];
+    if (last === undefined) {last = 1;}
+    let secondLast = fibonacciArr[i - 2];
+    if (secondLast === undefined) {secondLast = 1;}
+    // calculate next num in sequence
+    let nextNum = last + secondLast;
+    // push next num and then do recursive call with increased i
+    fibonacciArr.push(nextNum);
+    return fibonacci(n, fibonacciArr, i);
+  }
+
+}
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = fibonacci;
 } catch (e) {
   module.exports = null;
 }
-  

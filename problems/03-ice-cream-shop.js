@@ -13,7 +13,18 @@ iceCreamShop([], 'honey lavender'); // false
 ***********************************************************************/
 
 
-// your code here
+const iceCreamShop = function(flavors, favorite, i = 0){
+
+  if (flavors[i] === favorite){
+    return true;
+  }
+
+  if (i > flavors.length){
+    return false;
+  } else {
+    return iceCreamShop(flavors, favorite, i + 1);
+  }
+}
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/

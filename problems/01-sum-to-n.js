@@ -11,7 +11,21 @@ sumToN(9)  // returns 45
 sumToN(-8)  // returns null
 ***********************************************************************/
 
-// your code here
+const sumToN = function(num, term = 0, sum = 0){
+  if (num < 0){
+    return null;
+  }
+
+  sum = sum + term;
+  term++;
+
+  if (term > num){
+    return sum;
+  } else {
+    return sumToN(num, term, sum);
+  }
+
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

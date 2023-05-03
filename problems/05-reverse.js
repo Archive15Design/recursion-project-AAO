@@ -12,7 +12,18 @@ reverse("id"); // "di"
 reverse(""); // ""
 ***********************************************************************/
 
-// your code here
+const reverse = function(string, i = 0, array = []){
+  if (string.length < 2){
+    return string;
+  }
+
+  if (string.length === array.length){
+    return array.join("");
+  }else {
+    array.unshift(string[i]);
+    return reverse(string, i + 1, array);
+  }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
